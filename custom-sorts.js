@@ -39,7 +39,30 @@ function validAnagrams(s, t) {
 }
 
 function reverseBaseSort(arr) {
-  // Your code here
+  let base1Arr = []
+  let base2Arr = []
+  let base3Arr = []
+
+  let strArr = []
+  for (let i = 0; i < arr.length; i++) {
+    let ele = arr[i]
+    strArr.push(`${ele}`)
+  }
+
+
+  for (let i = 0; i < strArr.length; i++) {
+    let ele = strArr[i]
+    if (ele.length === 1) { base1Arr.push(arr[i]) }
+    else if (ele.length === 2) { base2Arr.push(arr[i]) }
+    else if (ele.length === 3) { base3Arr.push(arr[i]) }
+  }
+
+  base1Arr.sort((a, b) => a - b)
+  base2Arr.sort((a, b) => a - b)
+  base3Arr.sort((a, b) => a - b)
+
+  return [...base3Arr, ...base2Arr, ...base1Arr]
+
 }
 
 function frequencySort(arr) {
